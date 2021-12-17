@@ -6,7 +6,7 @@ on:
             -'n*'
     release:
         types: [published]
-    [push]
+    push
 jobs:
   build:
     runs-on: ubuntu-latest

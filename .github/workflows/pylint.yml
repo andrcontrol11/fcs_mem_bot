@@ -3,7 +3,6 @@ name: Pylint
 on:
     create:
         tags:
-            -'n*'
     release:
         types: [published]
     push:

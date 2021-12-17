@@ -16,7 +16,7 @@ def hello_father(message):
     """
     hello,father meme
     """
-    with open('bkjnJe_k5aM.jpg','rb') as father:
+    with open("bkjnJe_k5aM.jpeg","rb") as father:
         bot.send_photo(message.chat.id,father)
 
 @bot.inline_handler(func=lambda query: True)

@@ -1,10 +1,11 @@
 """
 bot for memes
 """
+import os
 import telebot
 from telebot import types
 
-bot = telebot.TeleBot("5081192958:AAHoZnjlZclLZuNWwY9FOzsH-K_6I-4Hwbs")
+bot = telebot.TeleBot(os.environ.get("TELEGRAM_BOT_TOKEN"))
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
     """

@@ -1,8 +1,8 @@
 """
 bot for memes
 """
-import telebot
 import re
+import telebot
 from telebot import types
 
 bot = telebot.TeleBot("5081192958:AAHoZnjlZclLZuNWwY9FOzsH-K_6I-4Hwbs")
@@ -17,14 +17,14 @@ def hello_father(message):
     """
     hello,father meme
     """
-    bot.send_photo(message.chat.id,open('bkjnJe_k5aM.jpeg','rb'))
+    with open('bkjnJe_k5aM.jpg','rb') as father:
+        bot.send_photo(message.chat.id,father)
 
 @bot.inline_handler(func=lambda query: True)
 def query_text(query):
     """
     Annie's Bogacheva pussy
     """
-    matches = re.match(r'', query.query)
     r_pic = types.InlineQueryResultPhoto(
             id='1', title="Поздоровайтесь с Отцом!",
             photo_url="https://i.imgur.com/4KgZdlg.jpg",

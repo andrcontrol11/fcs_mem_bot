@@ -673,7 +673,7 @@ def query_text(query):
     )
     bot.answer_inline_query(query.id,
                             [r_text, r_pic3, r_pic4, r_pic5, r_pic6,
-                             r_pic7, r_pic8, r_pic9, r_pic10, r_pic11, 
+                             r_pic7, r_pic8, r_pic9, r_pic10, r_pic11,
                              r_pic12, r_pic13, r_pic14, r_pic15, r_pic16,
                              r_pic17, r_pic18, r_pic19, r_pic20, r_pic21,
                              r_pic22, r_pic2, r_gif, r_gif2, r_gif3],

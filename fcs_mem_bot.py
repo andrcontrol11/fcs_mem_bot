@@ -1,12 +1,12 @@
 """
 bot for memes
 """
+from random import randint
 import os
 import telebot
 from telebot import types
-from random import randint
 
-bot = telebot.TeleBot("5081192958:AAHoZnjlZclLZuNWwY9FOzsH-K_6I-4Hwbs")
+bot = telebot.TeleBot(os.environ.get("TELEGRAM_BOT_TOKEN"))
 
 
 @bot.message_handler(commands=['start', 'help'])
@@ -15,7 +15,15 @@ def send_welcome(message):
     info message
     """
     bot.reply_to(message,
-                 "У данного бота много функций:\n Во-первых, бот умеет скидивать в чат рандомный мем/фото кота и тд, во-вторых, в нем есть много мемов для ВП(важных переговоров), которыми пользователь так же может воспользоваться в чате, просто обратившись к боту с помошью @Fcs_mem_bot, в-третьих, в чате с ботом встроена функция эхо(отвечает на фаше сообщение тем же сообщение) + есть две особенные комманда( для первой просто попробуйте поздороваться с ботом, а вот для второй надо узнать фамилию любимого преподавателя моего одногруппника - @nardzhiev и написать ее на русском с большой буквы)")
+                 "У данного бота много функций:"
+                 "\n Во-первых, бот умеет скидивать в чат рандомный мем/фото кота и тд\n"
+                 "Во-вторых, в нем есть много мемов для ВП(важных переговоров), которыми пользователь так же может "
+                 "воспользоваться в чате, просто обратившись к боту с помошью @Fcs_mem_bot,\n "
+                 "в-третьих, в чате с ботом встроена функция эхо(отвечает на фаше сообщение тем же сообщение) "
+                 "+ есть две особенные комманда( для первой просто попробуйте "
+                 "поздороваться с ботом, а вот для второй надо"
+                 " узнать фамилию любимого преподавателя моего одногруппника - "
+                 "@nardzhiev и написать ее на русском с большой буквы)")
 
 
 @bot.message_handler(commands=['hello_father'])
@@ -32,8 +40,11 @@ def query_text(query):
     """
     Bot photos
     """
-    a = randint(0, 100)
-    if 0 <= a <= 20:
+    # pylint: disable-msg=too-many-locals
+    # pylint: disable-msg=too-many-branches
+    # pylint: disable-msg=too-many-statements
+    v_a = randint(0, 100)
+    if 0 <= v_a <= 20:
         r_pic3 = types.InlineQueryResultPhoto(
             id='5',
             photo_url="https://i.imgur.com/zsMpvWW.jpg",
@@ -43,7 +54,7 @@ def query_text(query):
             title="Случайный кот",
             caption="кот 1"
         )
-    elif 21 <= a <= 40:
+    elif 21 <= v_a <= 40:
         r_pic3 = types.InlineQueryResultPhoto(
             id='5',
             photo_url="https://i.imgur.com/7MHyZqt.jpg",
@@ -53,7 +64,7 @@ def query_text(query):
             title="Случайный кот",
             caption="кот 2"
         )
-    elif 41 <= a <= 60:
+    elif 41 <= v_a <= 60:
         r_pic3 = types.InlineQueryResultPhoto(
             id='5',
             photo_url="https://i.imgur.com/043Hg5A.jpg",
@@ -63,7 +74,7 @@ def query_text(query):
             title="Случайный кот",
             caption="кот 3"
         )
-    elif 61 <= a <= 80:
+    elif 61 <= v_a <= 80:
         r_pic3 = types.InlineQueryResultPhoto(
             id='5',
             photo_url="https://i.imgur.com/PWo5Hvw.jpg",
@@ -83,8 +94,8 @@ def query_text(query):
             title="Случайный кот",
             caption="кот 5"
         )
-    b = randint(0, 79)
-    if 0 <= b <= 2:
+    v_b = randint(0, 79)
+    if 0 <= v_b <= 2:
         r_pic4 = types.InlineQueryResultPhoto(
             id='6',
             photo_url="https://i.imgur.com/959lBTy.jpg",
@@ -93,7 +104,7 @@ def query_text(query):
             photo_height="50",
             title="Случайный мем"
         )
-    elif 3 <= b <= 5:
+    elif 3 <= v_b <= 5:
         r_pic4 = types.InlineQueryResultPhoto(
             id='6',
             photo_url="https://i.imgur.com/a0wr2ii.jpg",
@@ -102,7 +113,7 @@ def query_text(query):
             photo_height="50",
             title="Случайный мем"
         )
-    elif 6 <= b <= 8:
+    elif 6 <= v_b <= 8:
         r_pic4 = types.InlineQueryResultPhoto(
             id='6',
             photo_url="https://i.imgur.com/ETitthn.jpg",
@@ -111,7 +122,7 @@ def query_text(query):
             photo_height="50",
             title="Случайный мем"
         )
-    elif 9 <= b <= 11:
+    elif 9 <= v_b <= 11:
         r_pic4 = types.InlineQueryResultPhoto(
             id='6',
             photo_url="https://i.imgur.com/TOhnZGs.jpg",
@@ -120,7 +131,7 @@ def query_text(query):
             photo_height="50",
             title="Случайный мем"
         )
-    elif 12 <= b <= 14:
+    elif 12 <= v_b <= 14:
         r_pic4 = types.InlineQueryResultPhoto(
             id='6',
             photo_url="https://i.imgur.com/S0ZCuKH.jpg",
@@ -129,7 +140,7 @@ def query_text(query):
             photo_height="50",
             title="Случайный мем"
         )
-    elif 73 <= b <= 74:
+    elif 73 <= v_b <= 74:
         r_pic4 = types.InlineQueryResultPhoto(
             id='6',
             photo_url="https://i.imgur.com/WX1i0nx.jpg",
@@ -139,7 +150,7 @@ def query_text(query):
             title="Случайный мем",
             caption="Поздравляем,вам выпал эпический хоббит-воин-Мячин!"
         )
-    elif 15 <= b <= 17:
+    elif 15 <= v_b <= 17:
         r_pic4 = types.InlineQueryResultPhoto(
             id='6',
             photo_url="https://i.imgur.com/q9wKFXu.jpg",
@@ -148,7 +159,7 @@ def query_text(query):
             photo_height="50",
             title="Случайный мем"
         )
-    elif 18 <= b <= 20:
+    elif 18 <= v_b <= 20:
         r_pic4 = types.InlineQueryResultPhoto(
             id='6',
             photo_url="https://i.imgur.com/S1NCVM6.jpg",
@@ -157,7 +168,7 @@ def query_text(query):
             photo_height="50",
             title="Случайный мем"
         )
-    elif 21 <= b <= 23:
+    elif 21 <= v_b <= 23:
         r_pic4 = types.InlineQueryResultPhoto(
             id='6',
             photo_url="https://i.imgur.com/poRXpah.jpg",
@@ -166,7 +177,7 @@ def query_text(query):
             photo_height="50",
             title="Случайный мем"
         )
-    elif 24 <= b <= 26:
+    elif 24 <= v_b <= 26:
         r_pic4 = types.InlineQueryResultPhoto(
             id='6',
             photo_url="https://i.imgur.com/yJqKVDG.jpg",
@@ -175,7 +186,7 @@ def query_text(query):
             photo_height="50",
             title="Случайный мем"
         )
-    elif 27 <= b <= 29:
+    elif 27 <= v_b <= 29:
         r_pic4 = types.InlineQueryResultPhoto(
             id='6',
             photo_url="https://i.imgur.com/j8hnOUM.jpg",
@@ -184,7 +195,7 @@ def query_text(query):
             photo_height="50",
             title="Случайный мем"
         )
-    elif 30 <= b <= 32:
+    elif 30 <= v_b <= 32:
         r_pic4 = types.InlineQueryResultPhoto(
             id='6',
             photo_url="https://i.imgur.com/yYtEGG2.jpg",
@@ -193,7 +204,7 @@ def query_text(query):
             photo_height="50",
             title="Случайный мем"
         )
-    elif 33 <= b <= 35:
+    elif 33 <= v_b <= 35:
         r_pic4 = types.InlineQueryResultPhoto(
             id='6',
             photo_url="https://i.imgur.com/QQgaUxa.jpg",
@@ -202,7 +213,7 @@ def query_text(query):
             photo_height="50",
             title="Случайный мем"
         )
-    elif 36 <= b <= 38:
+    elif 36 <= v_b <= 38:
         r_pic4 = types.InlineQueryResultPhoto(
             id='6',
             photo_url="https://i.imgur.com/QN3KODk.jpg",
@@ -211,7 +222,7 @@ def query_text(query):
             photo_height="50",
             title="Случайный мем"
         )
-    elif 39 <= b <= 41:
+    elif 39 <= v_b <= 41:
         r_pic4 = types.InlineQueryResultPhoto(
             id='6',
             photo_url="https://i.imgur.com/b3ePV3X.jpg",
@@ -220,7 +231,7 @@ def query_text(query):
             photo_height="50",
             title="Случайный мем"
         )
-    elif 42 <= b <= 44:
+    elif 42 <= v_b <= 44:
         r_pic4 = types.InlineQueryResultPhoto(
             id='6',
             photo_url="https://i.imgur.com/hhXgA3Q.jpg",
@@ -229,7 +240,7 @@ def query_text(query):
             photo_height="50",
             title="Случайный мем"
         )
-    elif 45 <= b <= 47:
+    elif 45 <= v_b <= 47:
         r_pic4 = types.InlineQueryResultPhoto(
             id='6',
             photo_url="https://i.imgur.com/NJL6iSU.jpg",
@@ -238,7 +249,7 @@ def query_text(query):
             photo_height="50",
             title="Случайный мем"
         )
-    elif 48 <= b <= 50:
+    elif 48 <= v_b <= 50:
         r_pic4 = types.InlineQueryResultPhoto(
             id='6',
             photo_url="https://i.imgur.com/T49cILL.jpg",
@@ -247,7 +258,7 @@ def query_text(query):
             photo_height="50",
             title="Случайный мем"
         )
-    elif 51 <= b <= 53:
+    elif 51 <= v_b <= 53:
         r_pic4 = types.InlineQueryResultPhoto(
             id='6',
             photo_url="https://i.imgur.com/Uyh5SsA.jpg",
@@ -256,7 +267,7 @@ def query_text(query):
             photo_height="50",
             title="Случайный мем"
         )
-    elif b == 72:
+    elif v_b == 72:
         r_pic4 = types.InlineQueryResultPhoto(
             id='6',
             photo_url="https://i.imgur.com/hGRIXQd.jpg",
@@ -266,7 +277,7 @@ def query_text(query):
             title="Случайный мем",
             caption="О ГОСПОДИ! Вам выпал ЛЕГЕНДАРНЫЙ РЕКУРСИВНЫЙ ТАГИР!"
         )
-    elif 54 <= b <= 56:
+    elif 54 <= v_b <= 56:
         r_pic4 = types.InlineQueryResultPhoto(
             id='6',
             photo_url="https://i.imgur.com/oP7LUuf.jpg",
@@ -275,7 +286,7 @@ def query_text(query):
             photo_height="50",
             title="Случайный мем"
         )
-    elif 57 <= b <= 59:
+    elif 57 <= v_b <= 59:
         r_pic4 = types.InlineQueryResultPhoto(
             id='6',
             photo_url="https://i.imgur.com/rtQJEnc.jpg",
@@ -284,7 +295,7 @@ def query_text(query):
             photo_height="50",
             title="Случайный мем"
         )
-    elif 60 <= b <= 62:
+    elif 60 <= v_b <= 62:
         r_pic4 = types.InlineQueryResultPhoto(
             id='6',
             photo_url="https://i.imgur.com/HRQk5mG.jpg",
@@ -293,7 +304,7 @@ def query_text(query):
             photo_height="50",
             title="Случайный мем"
         )
-    elif 63 <= b <= 65:
+    elif 63 <= v_b <= 65:
         r_pic4 = types.InlineQueryResultPhoto(
             id='6',
             photo_url="https://i.imgur.com/8YvFZtL.jpg",
@@ -302,7 +313,7 @@ def query_text(query):
             photo_height="50",
             title="Случайный мем"
         )
-    elif 66 <= b <= 68:
+    elif 66 <= v_b <= 68:
         r_pic4 = types.InlineQueryResultPhoto(
             id='6',
             photo_url="https://i.imgur.com/7lWxf5I.jpg",
@@ -311,7 +322,7 @@ def query_text(query):
             photo_height="50",
             title="Случайный мем"
         )
-    elif 69 <= b <= 71:
+    elif 69 <= v_b <= 71:
         r_pic4 = types.InlineQueryResultPhoto(
             id='6',
             photo_url="https://i.imgur.com/fHLV1R8.jpg",
@@ -320,7 +331,7 @@ def query_text(query):
             photo_height="50",
             title="Случайный мем"
         )
-    elif 75 <= b <= 77:
+    elif 75 <= v_b <= 77:
         r_pic4 = types.InlineQueryResultPhoto(
             id='6',
             photo_url="https://i.imgur.com/qvYz2Ly.jpg",
@@ -339,8 +350,8 @@ def query_text(query):
             title="Случайный мем",
             caption="О, вам попался редкий Хранитель-пивного очага 2010!"
         )
-    c = randint(0, 15)
-    if c == 0:
+    v_c = randint(0, 15)
+    if v_c == 0:
         r_pic5 = types.InlineQueryResultPhoto(
             id='7',
             photo_url="https://i.imgur.com/x9DZWEt.jpg",
@@ -349,7 +360,7 @@ def query_text(query):
             photo_height="50",
             title="Случайный no horny meme"
         )
-    elif c == 1:
+    elif v_c == 1:
         r_pic5 = types.InlineQueryResultPhoto(
             id='7',
             photo_url="https://i.imgur.com/4AdbDjW.jpg",
@@ -358,7 +369,7 @@ def query_text(query):
             photo_height="50",
             title="Случайный no horny meme"
         )
-    elif c == 2:
+    elif v_c == 2:
         r_pic5 = types.InlineQueryResultPhoto(
             id='7',
             photo_url="https://i.imgur.com/6QjPhew.jpg",
@@ -367,7 +378,7 @@ def query_text(query):
             photo_height="50",
             title="Случайный no horny meme"
         )
-    elif c == 3:
+    elif v_c == 3:
         r_pic5 = types.InlineQueryResultPhoto(
             id='7',
             photo_url="https://i.imgur.com/vVthBor.jpg",
@@ -376,7 +387,7 @@ def query_text(query):
             photo_height="50",
             title="Случайный no horny meme"
         )
-    elif c == 4:
+    elif v_c == 4:
         r_pic5 = types.InlineQueryResultPhoto(
             id='7',
             photo_url="https://i.imgur.com/ehP7iUy.jpg",
@@ -385,7 +396,7 @@ def query_text(query):
             photo_height="50",
             title="Случайный no horny meme"
         )
-    elif c == 5:
+    elif v_c == 5:
         r_pic5 = types.InlineQueryResultPhoto(
             id='7',
             photo_url="https://i.imgur.com/MBY1gfJ.jpg",
@@ -394,7 +405,7 @@ def query_text(query):
             photo_height="50",
             title="Случайный no horny meme"
         )
-    elif c == 6:
+    elif v_c == 6:
         r_pic5 = types.InlineQueryResultPhoto(
             id='7',
             photo_url="https://i.imgur.com/qOIq3Qh.jpg",
@@ -403,7 +414,7 @@ def query_text(query):
             photo_height="50",
             title="Случайный no horny meme"
         )
-    elif c == 7:
+    elif v_c == 7:
         r_pic5 = types.InlineQueryResultPhoto(
             id='7',
             photo_url="https://i.imgur.com/s45WYuK.jpg",
@@ -412,7 +423,7 @@ def query_text(query):
             photo_height="50",
             title="Случайный no horny meme"
         )
-    elif c == 8:
+    elif v_c == 8:
         r_pic5 = types.InlineQueryResultPhoto(
             id='7',
             photo_url="https://i.imgur.com/wwCYElg.jpg",
@@ -421,7 +432,7 @@ def query_text(query):
             photo_height="50",
             title="Случайный no horny meme"
         )
-    elif c == 9:
+    elif v_c == 9:
         r_pic5 = types.InlineQueryResultPhoto(
             id='7',
             photo_url="https://i.imgur.com/FFAo6Am.jpg",
@@ -430,7 +441,7 @@ def query_text(query):
             photo_height="50",
             title="Случайный no horny meme"
         )
-    elif c == 10:
+    elif v_c == 10:
         r_pic5 = types.InlineQueryResultPhoto(
             id='7',
             photo_url="https://i.imgur.com/ICTOd4I.jpg",
@@ -439,7 +450,7 @@ def query_text(query):
             photo_height="50",
             title="Случайный no horny meme"
         )
-    elif c == 11:
+    elif v_c == 11:
         r_pic5 = types.InlineQueryResultPhoto(
             id='7',
             photo_url="https://i.imgur.com/3CoHAZm.jpg",
@@ -448,7 +459,7 @@ def query_text(query):
             photo_height="50",
             title="Случайный no horny meme"
         )
-    elif c == 12:
+    elif v_c == 12:
         r_pic5 = types.InlineQueryResultPhoto(
             id='7',
             photo_url="https://i.imgur.com/KXqqn5J.jpg",
@@ -457,7 +468,7 @@ def query_text(query):
             photo_height="50",
             title="Случайный no horny meme"
         )
-    elif c == 13:
+    elif v_c == 13:
         r_pic5 = types.InlineQueryResultPhoto(
             id='7',
             photo_url="https://i.imgur.com/WOwy18v.jpg",
@@ -646,12 +657,21 @@ def query_text(query):
     r_text = types.InlineQueryResultArticle(
         id='4', title="Инфо", description="Полезная информация",
         input_message_content=types.InputTextMessageContent(
-            message_text="У данного бота много функций:\n Во-первых, бот умеет скидивать в чат рандомный мем/фото кота и тд, во-вторых, в нем есть много мемов для ВП(важных переговоров), которыми пользователь так же может воспользоваться в чате, просто обратившись к боту с помошью @Fcs_mem_bot, в-третьих, в чате с ботом встроена функция эхо(отвечает на фаше сообщение тем же сообщение) + есть две особенные комманда( для первой просто попробуйте поздороваться с ботом, а вот для второй надо узнать фамилию любимого преподавателя моего одногруппника - @nardzhiev и написать ее на русском с большой буквы)")
+            message_text="У данного бота много функций:"
+                 "\n Во-первых, бот умеет скидивать в чат рандомный мем/фото кота и тд\n"
+                 "Во-вторых, в нем есть много мемов для ВП(важных переговоров), которыми пользователь так же может "
+                 "воспользоваться в чате, просто обратившись к боту с помошью @Fcs_mem_bot,\n "
+                 "в-третьих, в чате с ботом встроена функция эхо(отвечает на фаше сообщение тем же сообщение) "
+                 "+ есть две особенные комманда( для первой просто попробуйте "
+                 "поздороваться с ботом, а вот для второй надо"
+                 " узнать фамилию любимого преподавателя моего одногруппника - "
+                 "@nardzhiev и написать ее на русском с большой буквы)")
     )
     bot.answer_inline_query(query.id,
-                            [r_text, r_pic3, r_pic4, r_pic5, r_pic6, r_pic7, r_pic8, r_pic9, r_pic10, r_pic11, r_pic12,
-                             r_pic13, r_pic14, r_pic15, r_pic16, r_pic17, r_pic18, r_pic19, r_pic20, r_pic21, r_pic22,
-                             r_pic2, r_gif, r_gif2, r_gif3], cache_time=1, is_personal=True)
+                            [r_text, r_pic3, r_pic4, r_pic5, r_pic6, r_pic7, r_pic8, r_pic9, 
+                             r_pic10, r_pic11, r_pic12, r_pic13, r_pic14, r_pic15, r_pic16, 
+                             r_pic17, r_pic18, r_pic19, r_pic20, r_pic21, r_pic22, r_pic2, 
+                             r_gif, r_gif2, r_gif3], cache_time=1, is_personal=True)
 
 
 @bot.message_handler(func=lambda message: True)
